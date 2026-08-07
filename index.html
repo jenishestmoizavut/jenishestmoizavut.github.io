@@ -3,13 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Projects</title>
+    <meta name="robots" content="index, follow">
+    <title>Digital Projects & Web Utilities | Jenish</title>
     
     <!-- Google AdSense Verification Tag -->
     <meta name="google-adsense-account" content="ca-pub-1804833893263319">
+
+    <style>
+        /* --- COLOR VARIABLES & DARK MODE --- */
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #2d3436;
+            --card-bg: #ffffff;
+            --accent: #0984e3;
+            --border-color: rgba(0,0,0,0.1);
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --footer-color: #b2bec3;
+        }
+        [data-theme="dark"] {
+            --bg-color: #222f3e;
+            --text-color: #dfe6e9;
+            --card-bg: #2d3436;
+            --accent: #74b9ff; 
+            --border-color: rgba(255,255,255,0.1);
+            --shadow: 0 10px 30px rgba(0,0,0,0.3);
+            --footer-color: #636e72;
+        }
+
+        /* --- BASE STYLES --- */
+        body {
+            margin: 0;
+            padding: 80px 20px 40px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header { text-align: center; margin-bottom: 50px; }
+        
+        h1 {
+            font-size: 2.5rem; margin-bottom: 10px; margin-top: 0;
+            background: linear-gradient(45deg, #0984e3, #6c5ce7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle { color: #636e72; font-size: 1.1rem; max-width: 600px; line-height: 1.6; margin: 0 auto; }
+        [data-theme="dark"] .subtitle { color: #b2bec3; }
+
+        /* --- CONTENT CARDS (For AdSense Text Density) --- */
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 900px;
+        }
+        .text-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: left;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .text-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--accent);
+        }
+        .text-card h2 { margin-top: 0; color: var(--accent); font-size: 1.6rem; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        .text-card p { line-height: 1.7; font-size: 1.05rem; opacity: 0.9; margin-bottom: 15px; }
+        
+        .faq-item { margin-top: 20px; }
+        .faq-question { font-weight: bold; font-size: 1.1rem; margin-bottom: 5px; color: var(--text-color); }
+        .faq-answer { opacity: 0.85; line-height: 1.6; }
+
+        .website-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background-color: var(--accent); color: white;
+            padding: 12px 24px; border-radius: 50px; text-decoration: none;
+            font-weight: bold; font-size: 1rem; transition: all 0.2s;
+            margin-top: 10px;
+        }
+        .website-btn:hover { filter: brightness(1.1); transform: scale(1.05); }
+
+        /* --- CONTROLS --- */
+        .controls-container {
+            position: absolute; top: 20px; right: 20px;
+            display: flex; gap: 15px; z-index: 100;
+        }
+        .control-btn {
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            color: var(--text-color); width: 45px; height: 45px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; cursor: pointer; box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        .control-btn:hover { transform: scale(1.1); border-color: var(--accent); }
+    </style>
 </head>
 <body>
-    <h1>Welcome to my GitHub Pages</h1>
-    <p>Please navigate to my specific project repositories.</p>
+
+    <!-- Dark Mode Toggle -->
+    <div class="controls-container">
+        <button class="control-btn" id="themeToggle" aria-label="Dark Mode">
+            🌙
+        </button>
+    </div>
+
+    <header>
+        <h1>Digital Projects Hub</h1>
+        <p class="subtitle">A central directory for functional web utilities, progressive web apps, and interactive visualizations.</p>
+    </header>
+
+    <div class="content-container">
+
+        <!-- BitsPlay Section -->
+        <div class="text-card">
+            <h2>BitsPlay: Daily Puzzle Hub</h2>
+            <p>BitsPlay is a minimalist, daily puzzle platform engineered entirely with vanilla web technologies—specifically HTML5, CSS3, and JavaScript. By intentionally avoiding heavy frontend frameworks, the application delivers a lightweight, lightning-fast user experience. Operating as a fully installable Progressive Web App (PWA), it allows for native-like usage and performance across all mobile devices.</p>
+            <p>The platform features cloud-synced progression backed by Google Authentication and Firebase data infrastructure, dynamic global leaderboards, and an optimistic UI for seamless post-game community interactions. The hub hosts a suite of brain-teasing daily games, including its flagship trivia-anagram challenge, ReWorded, alongside other quick mental exercises like Number Run and Culture Snap.</p>
+            <a href="/bitsplay/" class="website-btn">Play BitsPlay</a>
+        </div>
+
+        <!-- MemStore Section -->
+        <div class="text-card">
+            <h2>MemStore: Delayed-Access Journaling</h2>
+            <p>MemStore is an innovative digital journaling platform built on a robust Firebase data architecture. Moving beyond traditional, static note-taking applications, MemStore introduces a unique delayed-access reveal mechanic. This core feature locks entries for a predetermined period, encouraging users to step back and reflect on their past thoughts with a fresh, detached perspective once the time lock expires.</p>
+            <p>The technical architecture handles complex application logic and secure database integration to ensure user privacy. Paired with fluid UI animations and a clean design, the platform creates an engaging, highly personal environment for long-term digital reflection and memory storage.</p>
+            <a href="/memstore/" class="website-btn">Open MemStore</a>
+        </div>
+        
+        <!-- Attrack Section -->
+        <div class="text-card">
+            <h2>Attrack: Progressive Web Application</h2>
+            <p>Attrack is a comprehensive progressive web application (PWA) engineered to help users efficiently monitor their daily schedules and manage pending tasks. Unlike standard static websites, Attrack operates as a functional dashboard that relies on complex JavaScript logic to track attendance metrics, calculate percentages in real-time, and organize assignment deadlines.</p>
+            <p>The application is built with a focus on mobile responsiveness and offline capability. By utilizing service workers and local caching, Attrack ensures that users can access their critical data without interruption. The interface is specifically designed to eliminate clutter, providing a straightforward utility for managing time and responsibilities effectively.</p>
+            <a href="/attrack/" class="website-btn">Launch Attrack</a>
+        </div>
+
+        <!-- Simulating Statistics Section -->
+        <div class="text-card">
+            <h2>Simulating Statistics: Interactive Visualizations</h2>
+            <p>Advanced mathematics and actuarial science rely heavily on abstract models that can be difficult to interpret through static equations alone. The Simulating Statistics platform was developed to solve this problem by providing dynamic, interactive visual representations of complex statistical theories and probability models.</p>
+            <p>This project includes functional simulations for concepts such as Markov Chains, survival analysis, loss distributions, and stochastic modeling. By allowing users to manipulate input variables and observe the resulting graphical changes in real-time, the platform serves as an educational bridge. It transforms rigorous mathematical principles into accessible, visual data, aiding in the deeper understanding of predictive modeling and risk assessment.</p>
+            <a href="/simulating-statistics/" class="website-btn">Explore Simulations</a>
+        </div>
+
+        <!-- FAQ Section for AdSense Text Density -->
+        <div class="text-card">
+            <h2>Frequently Asked Questions & Documentation</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is the purpose of this domain?</div>
+                <div class="faq-answer">This root domain acts as a landing page and directory for various web-based utilities and analytical tools. It provides documentation and context for the underlying progressive web apps and statistical simulations hosted on sub-routes, ensuring visitors understand the technical scope of the hosted applications.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How does the application logic handle user data?</div>
+                <div class="faq-answer">For utility apps like Attrack, the tracking logic utilizes client-side storage to maintain a continuous ledger of user inputs, ensuring privacy by keeping data processing local to the device. For cloud-synced applications like BitsPlay and MemStore, data is securely routed and authenticated through scalable Firebase infrastructure.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Are the mathematical simulations scientifically accurate?</div>
+                <div class="faq-answer">Yes. The statistical simulations are built upon established actuarial formulas. While they are designed for educational visualization and conceptual understanding, the underlying computational logic adheres to strict mathematical rigor, particularly in the areas of probability, graphing, and survival functions.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', currentTheme);
+        updateIcon(currentTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            let theme = htmlElement.getAttribute('data-theme');
+            theme = (theme === 'light') ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            updateIcon(theme);
+        });
+
+        function updateIcon(theme) {
+            themeToggleBtn.innerText = (theme === 'dark') ? '☀️' : '🌙';
+        }
+    </script>
+
 </body>
 </html>
